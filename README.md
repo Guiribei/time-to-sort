@@ -1,6 +1,10 @@
 # time-to-sort
 A 42 project named Push_swap whose goal is to implement an efficient sorting algorithm.
 
-usage: ./push_swap num1 num2 num3 ...
+Usage: ./push_swap num1 num2 num3 ...
 
-Still a work in progress! Working on bonus part!
+Bonus usage: ./checker num1 num2 num3 ...
+
+Fast way: ARG=$(seq -200 301 | shuf); ./push_swap $ARG | ./checker $ARG
+
+Still a work in progress!
