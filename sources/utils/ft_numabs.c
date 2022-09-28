@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstpenult.c                                     :+:      :+:    :+:   */
+/*   ft_numabs.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: guribeir <guribeir@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/01 02:21:30 by guribeir          #+#    #+#             */
-/*   Updated: 2022/09/20 20:41:36 by guribeir         ###   ########.fr       */
+/*   Created: 2022/09/01 20:41:00 by guribeir          #+#    #+#             */
+/*   Updated: 2022/09/20 20:41:42 by guribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*ft_lstpenult(t_list *lst)
+int	ft_numabs(int num)
 {
-	if (!lst)
-		return (0);
-	while (lst->next && lst->next->next != NULL)
-		lst = lst->next;
-	return (lst);
+	if (num < 0)
+		return (num * -1);
+	return (num);
 }

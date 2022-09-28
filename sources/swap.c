@@ -6,7 +6,7 @@
 /*   By: guribeir <guribeir@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 03:34:19 by guribeir          #+#    #+#             */
-/*   Updated: 2022/09/01 03:51:26 by guribeir         ###   ########.fr       */
+/*   Updated: 2022/09/20 20:42:32 by guribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ void	sb(t_list **head)
 	ft_putstr_fd("sb\n", 1);
 }
 
-void	ss(t_list **head1, t_list **head2)
+void	ss(t_list **head_a, t_list **head_b)
 {
-	swap(*head1);
-	swap(*head2);
+	swap(*head_a);
+	swap(*head_b);
 	ft_putstr_fd("ss\n", 1);
 }

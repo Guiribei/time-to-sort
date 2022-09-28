@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstpenult.c                                     :+:      :+:    :+:   */
+/*   ft_lstadd_back_bo.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: guribeir <guribeir@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/01 02:21:30 by guribeir          #+#    #+#             */
-/*   Updated: 2022/09/20 20:41:36 by guribeir         ###   ########.fr       */
+/*   Created: 2022/04/28 17:28:26 by guribeir          #+#    #+#             */
+/*   Updated: 2022/09/20 20:38:48 by guribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*ft_lstpenult(t_list *lst)
+void	ft_lstadd_back_bo(t_list_bo **lst, t_list_bo *new)
 {
-	if (!lst)
-		return (0);
-	while (lst->next && lst->next->next != NULL)
-		lst = lst->next;
-	return (lst);
+	t_list_bo	*last;
+
+	if (!new)
+		return ;
+	if (!*lst)
+	{
+		*lst = new;
+		return ;
+	}
+	last = ft_lstlast_bo(*lst);
+	last->next = new;
 }

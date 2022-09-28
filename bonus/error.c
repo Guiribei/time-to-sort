@@ -6,7 +6,7 @@
 /*   By: guribeir <guribeir@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 20:43:25 by guribeir          #+#    #+#             */
-/*   Updated: 2022/09/20 20:42:02 by guribeir         ###   ########.fr       */
+/*   Updated: 2022/09/20 20:38:15 by guribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,17 @@ void	check_argv(int argc, char **argv)
 		}
 		i++;
 	}
+}
+
+void	right_start(int argc, char **argv)
+{
+	if (argc < 2)
+		exit (1);
+	check_argv(argc, argv);
+}
+
+void	all_clear(t_list_bo **head_a, t_list_bo **head_b)
+{
+	ft_lstclear_bo(head_a);
+	ft_lstclear_bo(head_b);
 }

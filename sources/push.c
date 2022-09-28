@@ -6,7 +6,7 @@
 /*   By: guribeir <guribeir@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 03:45:33 by guribeir          #+#    #+#             */
-/*   Updated: 2022/09/01 03:57:17 by guribeir         ###   ########.fr       */
+/*   Updated: 2022/09/20 20:42:13 by guribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,20 @@ static void	push(t_list **src, t_list **dst)
 
 	if (*src == NULL)
 		return ;
-	tmp = (*src)->next; // I'm really not so sure about this parentesis
+	tmp = (*src)->next;
 	(*src)->next = *dst;
 	*dst = *src;
 	*src = tmp;
 }
 
-void	pa(t_list **head1, t_list **head2)
+void	pa(t_list **head_a, t_list **head_b)
 {
-	push(head2, head1);
+	push(head_b, head_a);
 	ft_putstr_fd("pa\n", 1);
 }
 
-void	pb(t_list **head1, t_list **head2)
+void	pb(t_list **head_a, t_list **head_b)
 {
-	push(head1, head2);
+	push(head_a, head_b);
 	ft_putstr_fd("pb\n", 1);
 }

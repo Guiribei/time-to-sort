@@ -1,46 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rev_rotate.c                                       :+:      :+:    :+:   */
+/*   rotate_bo.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: guribeir <guribeir@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/01 02:18:38 by guribeir          #+#    #+#             */
-/*   Updated: 2022/09/20 20:42:17 by guribeir         ###   ########.fr       */
+/*   Created: 2022/09/01 01:18:24 by guribeir          #+#    #+#             */
+/*   Updated: 2022/09/20 20:40:42 by guribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	rev_rotate(t_list **head)
+static void	rotate(t_list_bo **head)
 {
-	t_list	*tmp;
-	t_list	*last;
-	t_list	*penult;
+	t_list_bo	*tmp;
+	t_list_bo	*last;
 
-	last = ft_lstlast(*head);
-	penult = ft_lstpenult(*head);
 	tmp = *head;
-	*head = last;
-	(*head)->next = tmp;
-	penult->next = NULL;
+	if ((*head)->next)
+		*head = (*head)->next;
+	else
+		return ;
+	last = ft_lstlast_bo(*head);
+	tmp->next = NULL;
+	last->next = tmp;
 }
 
-void	rra(t_list **head)
+void	ra_bo(t_list_bo **head)
 {
-	rev_rotate(head);
-	ft_putstr_fd("rra\n", 1);
+	rotate(head);
 }
 
-void	rrb(t_list **head)
+void	rb_bo(t_list_bo **head)
 {
-	rev_rotate(head);
-	ft_putstr_fd("rrb\n", 1);
+	if (*head == NULL)
+		return ;
+	rotate(head);
 }
 
-void	rrr(t_list **head_a, t_list **head_b)
+void	rr_bo(t_list_bo **head_a, t_list_bo **head_b)
 {
-	rev_rotate(head_a);
-	rev_rotate(head_b);
-	ft_putstr_fd("rrr\n", 1);
+	if (*head_b == NULL)
+		return ;
+	rotate(head_a);
+	rotate(head_b);
 }

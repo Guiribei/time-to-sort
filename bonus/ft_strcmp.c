@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstpenult.c                                     :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: guribeir <guribeir@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/01 02:21:30 by guribeir          #+#    #+#             */
-/*   Updated: 2022/09/20 20:41:36 by guribeir         ###   ########.fr       */
+/*   Created: 2022/02/11 13:39:08 by guribeir          #+#    #+#             */
+/*   Updated: 2022/09/20 20:39:59 by guribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*ft_lstpenult(t_list *lst)
+int	ft_strcmp(char *s1, char *s2)
 {
-	if (!lst)
-		return (0);
-	while (lst->next && lst->next->next != NULL)
-		lst = lst->next;
-	return (lst);
+	int	i;
+
+	i = 0;
+	while (s1[i] && s1[i] == s2[i])
+	{
+		i++;
+	}
+	return (s1[i] - s2[i]);
 }

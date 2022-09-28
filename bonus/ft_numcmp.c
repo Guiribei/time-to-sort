@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstpenult.c                                     :+:      :+:    :+:   */
+/*   ft_numcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: guribeir <guribeir@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/01 02:21:30 by guribeir          #+#    #+#             */
-/*   Updated: 2022/09/20 20:41:36 by guribeir         ###   ########.fr       */
+/*   Created: 2022/02/11 13:39:08 by guribeir          #+#    #+#             */
+/*   Updated: 2022/09/20 20:39:20 by guribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*ft_lstpenult(t_list *lst)
+int	ft_numcmp(int nb1, int nb2)
 {
-	if (!lst)
-		return (0);
-	while (lst->next && lst->next->next != NULL)
-		lst = lst->next;
-	return (lst);
+	return (nb1 - nb2);
 }

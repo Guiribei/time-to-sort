@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: guribeir <guribeir@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/28 16:37:38 by guribeir          #+#    #+#             */
-/*   Updated: 2022/09/20 20:41:33 by guribeir         ###   ########.fr       */
+/*   Created: 2022/04/12 20:44:15 by guribeir          #+#    #+#             */
+/*   Updated: 2022/09/20 20:40:09 by guribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*ft_lstnew(int nb)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	t_list	*lst;
+	char	*ptr;
+	size_t	j;
+	size_t	len_s;
 
-	lst = (t_list *)malloc(sizeof(t_list));
-	if (!lst)
+	len_s = ft_strlen(s);
+	if (!s)
 		return (NULL);
-	lst->nb = nb;
-	lst->index = 0;
-	lst->pos = -1;
-	lst->target_pos = -1;
-	lst->cost_a = -1;
-	lst->cost_b = -1;
-	lst->next = NULL;
-	lst->next = NULL;
-	return (lst);
+	if (start >= len_s)
+		ptr = (char *)malloc(1);
+	else if (len >= len_s)
+		ptr = (char *)malloc(len_s - start + 1);
+	else
+		ptr = (char *)malloc((len + 1) * sizeof(char));
+	if (!ptr)
+		return (NULL);
+	j = 0;
+	while (start < len_s && j < len)
+		ptr[j++] = s[start++];
+	ptr[j] = '\0';
+	return (ptr);
 }

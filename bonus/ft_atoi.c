@@ -1,26 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: guribeir <guribeir@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/28 17:17:04 by guribeir          #+#    #+#             */
-/*   Updated: 2022/09/20 20:41:39 by guribeir         ###   ########.fr       */
+/*   Created: 2022/04/11 20:57:40 by guribeir          #+#    #+#             */
+/*   Updated: 2022/09/20 20:38:34 by guribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_lstsize(t_list *lst)
+long long int	ft_atoi(const char *nptr)
 {
-	int	i;
+	long long int	nb;
+	int				i;
+	int				isneg;
 
+	nb = 0;
 	i = 0;
-	while (lst)
+	isneg = 0;
+	while (nptr[i] == ' ' || (nptr[i] >= 9 && nptr[i] <= 13))
+		i++;
+	if (nptr[i] != '\0' && nptr[i] == '-')
 	{
-		lst = lst->next;
+		isneg = 1;
 		i++;
 	}
-	return (i);
+	else if (nptr[i] == '+')
+		i++;
+	while (nptr[i] != '\0' && nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		nb = (nb * 10) + (nptr[i] - '0');
+		i++;
+	}
+	if (isneg == 1)
+		return (-nb);
+	return (nb);
 }

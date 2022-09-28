@@ -1,46 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rev_rotate.c                                       :+:      :+:    :+:   */
+/*   rev_rotate_bo.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: guribeir <guribeir@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 02:18:38 by guribeir          #+#    #+#             */
-/*   Updated: 2022/09/20 20:42:17 by guribeir         ###   ########.fr       */
+/*   Updated: 2022/09/20 20:40:34 by guribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	rev_rotate(t_list **head)
+static void	rev_rotate(t_list_bo **head)
 {
-	t_list	*tmp;
-	t_list	*last;
-	t_list	*penult;
+	t_list_bo	*tmp;
+	t_list_bo	*last;
+	t_list_bo	*penult;
 
-	last = ft_lstlast(*head);
-	penult = ft_lstpenult(*head);
+	last = ft_lstlast_bo(*head);
+	penult = ft_lstpenult_bo(*head);
 	tmp = *head;
 	*head = last;
 	(*head)->next = tmp;
 	penult->next = NULL;
 }
 
-void	rra(t_list **head)
+void	rra_bo(t_list_bo **head)
 {
 	rev_rotate(head);
-	ft_putstr_fd("rra\n", 1);
 }
 
-void	rrb(t_list **head)
+void	rrb_bo(t_list_bo **head)
 {
+	if (*head == NULL)
+		return ;
 	rev_rotate(head);
-	ft_putstr_fd("rrb\n", 1);
 }
 
-void	rrr(t_list **head_a, t_list **head_b)
+void	rrr_bo(t_list_bo **head_a, t_list_bo **head_b)
 {
+	if (*head_b == NULL)
+		return ;
 	rev_rotate(head_a);
 	rev_rotate(head_b);
-	ft_putstr_fd("rrr\n", 1);
 }
